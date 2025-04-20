@@ -18,8 +18,7 @@ Instead, it leverages **MDLs**, **interlocked operations**, and a lightweight me
 - 💡 **No use of `ZwCreateSection`, `NtMapViewOfSection`, or `CreateFileMapping`**
 - 🧠 **Small, efficient memory footprint**
 - 🔒 **Synchronization via `InterlockedXxx` primitives**
-- 🔄 **One-way or two-way communication support**
-
+ 
 ---
 
 ## How It Works
