@@ -1,31 +1,61 @@
-# Kernel-Mode to User-Mode Communication via MDL Mapping (No Syscalls / No Memory Sections)
+# Kernel-Mode to User-Mode Communication via MDL Mapping  
 
-## Overview
+## Summary
 
-This project demonstrates efficient, low-overhead communication between Windows kernel-mode drivers and user-mode applications using **Memory Descriptor List (MDL)**-based memory mapping. Unlike conventional methods relying on system calls or memory sections, this technique provides a lightweight and direct mechanism for sharing memory.
+This project demonstrates  fast communication between a Windows kernel-mode driver and a user-mode application using **MDL-based memory mapping**. It achieves over **1.5 million reads per second** without relying on:
 
-### Key Features
+- ❌ System calls
+- ❌ Memory sections
+- ❌ Large non-paged pools
 
-- 🔒 **Secure & Controlled Mapping**  
-  Memory mapping is tightly managed via MDLs, avoiding global memory sections or page file-backed objects.
-
-- ⚡ **High Performance**  
-  Eliminates the overhead of frequent syscalls, making it suitable for real-time or high-throughput applications.
-
-- 🔄 **Full-Duplex Communication**  
-  Supports both kernel-to-user and user-to-kernel data exchange.
-
-- ❌ **No Use of `ZwCreateSection`, `NtMapViewOfSection`, or Shared Memory Objects**
+Instead, it leverages **MDLs**, **interlocked operations**, and a lightweight memory mapping strategy for maximum efficiency and minimal overhead.
 
 ---
 
-## Architecture
+## Highlights
 
-```plaintext
-+---------------------+      MDL Mapping       +----------------------+
-|  Kernel-Mode Driver | <-------------------> |  User-Mode Application |
-+---------------------+                        +----------------------+
+- ⚡ **1.5M+ reads/sec** throughput
+- 💡 **No use of `ZwCreateSection`, `NtMapViewOfSection`, or `CreateFileMapping`**
+- 🧠 **Small, efficient memory footprint**
+- 🔒 **Synchronization via `InterlockedXxx` primitives**
+- 🔄 **One-way or two-way communication support**
 
-       - Allocates non-paged pool memory
-       - Builds MDL and maps to user-mode
-       - Synchronization via interlocks
+---
+
+## How It Works
+
+1. **Kernel Driver**  
+   - Allocates a small block of non-paged memory  
+   - Uses `IoAllocateMdl` + `MmBuildMdlForNonPagedPool`  
+   - Maps memory to user-mode with `MmMapLockedPagesSpecifyCache`  
+
+2. **User-Mode App**  
+    - Uses interlocked flags to sync with kernel  
+   - Reads data directly with no syscall overhead
+
+---
+
+## Synchronization
+
+- No mutexes or events
+- Uses `InterlockedCompareExchange`, `InterlockedExchange` for flagging and handshaking
+- Minimal spin-waiting ensures low-latency data exchange
+
+---
+
+## Performance
+
+- Benchmarked at **~1.5 million read operations per second**
+- Latency remains minimal due to zero system calls and tight control over memory
+
+ 
+---
+
+## Disclaimer
+
+This project is for educational and experimental use only.  
+Direct memory mapping from kernel to user mode is powerful but must be handled with care.
+
+---
+
+ 
