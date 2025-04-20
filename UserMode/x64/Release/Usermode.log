@@ -1,0 +1,10 @@
+﻿  kernel.cpp
+C:\Users\mraxe\Desktop\Files\Cheat Stuff\KEZAP\KmUm - Optimised\UserMode\kernel.cpp(45,15): warning C4311: 'type cast': pointer truncation from 'PVOID' to 'int'
+C:\Users\mraxe\Desktop\Files\Cheat Stuff\KEZAP\KmUm - Optimised\UserMode\kernel.cpp(45,15): warning C4302: 'type cast': truncation from 'PVOID' to 'int'
+  main.cpp
+  Generating code
+  3 of 50 functions ( 6.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Usermode.vcxproj -> C:\Users\mraxe\Desktop\Files\Cheat Stuff\KEZAP\KmUm - Optimised\x64\Release\UserMode.exe

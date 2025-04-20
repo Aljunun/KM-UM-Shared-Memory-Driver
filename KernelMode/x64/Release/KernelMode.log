@@ -1,0 +1,26 @@
+﻿  Building 'KernelMode' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  driver.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vcruntime.h(61,26): warning C4083: expected ')'; found identifier '_VCRUNTIME_DISABLED_WARNINGS'
+  (compiling source file 'driver.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vcruntime.h(111,9): warning C4005: '_CRT_STRINGIZE': macro redefinition
+  (compiling source file 'driver.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\crt\crtdefs.h(85,9):
+      see previous definition of '_CRT_STRINGIZE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vcruntime.h(114,9): warning C4005: '_CRT_WIDE': macro redefinition
+  (compiling source file 'driver.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\crt\crtdefs.h(88,9):
+      see previous definition of '_CRT_WIDE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vcruntime.h(155,9): warning C4005: '__CRTDECL': macro redefinition
+  (compiling source file 'driver.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km\crt\crtdefs.h(640,9):
+      see previous definition of '__CRTDECL'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\stdint.h(16,26): warning C4083: expected ')'; found identifier '_VCRUNTIME_DISABLED_WARNINGS'
+  (compiling source file 'driver.cpp')
+  
+C:\Users\mraxe\Desktop\Files\Cheat Stuff\KEZAP\KmUm - Optimised\KernelMode\driver.cpp(5,10): warning C4326: return type of 'main' should be 'int' instead of 'NTSTATUS'
+  KernelMode.vcxproj -> C:\Users\mraxe\Desktop\Files\Cheat Stuff\KEZAP\KmUm - Optimised\x64\Release\KernelMode.sys
+  Driver is 'Universal'.
