@@ -33,16 +33,15 @@ int main() {
 		std::cout << "reading " << i << std::endl;
         uintptr_t readValue = read<uintptr_t>(0x8);
 	 
-         // Verify result
+      
         if (readValue != testNumber) {
-         //   std::cout << "[-] Mismatch at iteration " << i + 1 << "\n";
-           // std::cout << "[~] Expected: " << testNumber << "\n";
-            //std::cout << "[~] Received: " << readValue << "\n";
+             std::cout << "[-] Mismatch at iteration " << i + 1 << "\n";
+             std::cout << "[~] Expected: " << testNumber << "\n";
+             std::cout << "[~] Received: " << readValue << "\n";
             errorCount++;
         }
         testNumber +=1 ;
-        // Small delay between operations
-      }
+       }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::nano> duration = end - start;
     getchar();
