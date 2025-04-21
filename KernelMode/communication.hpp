@@ -117,8 +117,7 @@ namespace usermode {
                 status = GetExceptionCode();
             }
 
-            // Cleanup
-          
+           
         }
         ObDereferenceObject(targetProcess);
         
