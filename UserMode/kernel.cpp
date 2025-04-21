@@ -2,8 +2,7 @@
 #include <thread>
 #include <Windows.h>
 #include "misc.h"
- // Waiting for the kernel mode response
- 
+  
 
 std::mutex& getMutex() {
     static std::mutex mtx;
