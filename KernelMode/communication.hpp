@@ -127,8 +127,7 @@ namespace usermode {
     }
 
 
-    // read whole UM structure (otherwise you'll have 2/3 read usermode before executing the one for the game)
- 
+  
     template <typename T>
     T read(uintptr_t address) {
         SIZE_T WByte;
