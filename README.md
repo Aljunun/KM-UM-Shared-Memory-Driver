@@ -53,8 +53,7 @@ Instead, it leverages **MDLs**, **interlocked operations**, and a lightweight me
 ## Disclaimer
 
 This project is for educational and experimental use only.  
-Direct memory mapping from kernel to user mode is powerful but must be handled with care.
-
+ 
 ---
 
  
